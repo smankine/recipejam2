@@ -14,8 +14,51 @@ export function getPosts(req, res) {
     if (err) {
       res.status(500).send(err);
     }
-    res.json({ posts });
+    res.json({posts});
   });
+}
+
+export function search(req, res) {
+
+  res.json({
+    "incredients": [
+      {
+        "name": "butten",
+        "key": "butten",
+        "picture": "https://lh3.googleusercontent.com/NfhMg17W1b2VMswcNc2bNKCy_s93eV6ylInehlcPpD0fDjXBjplXykx0mdTeaOwnkACsOAk2bRR7o5gR2AS0=s90",
+
+        "replacements": [
+          {
+            "name": "coconotoil",
+            "picture": "https://lh3.googleusercontent.com/NfhMg17W1b2VMswcNc2bNKCy_s93eV6ylInehlcPpD0fDjXBjplXykx0mdTeaOwnkACsOAk2bRR7o5gR2AS0=s90",
+            "method": {}
+          }
+        ]
+      }
+    ]
+  });
+
+}
+
+export function getIncredients(req, res) {
+
+  res.json({
+    "incredients": [
+      {
+        "name": "butten",
+        "picture": "https://lh3.googleusercontent.com/NfhMg17W1b2VMswcNc2bNKCy_s93eV6ylInehlcPpD0fDjXBjplXykx0mdTeaOwnkACsOAk2bRR7o5gR2AS0=s90",
+
+        "replacements": [
+          {
+            "name": "coconotoil",
+            "picture": "https://lh3.googleusercontent.com/NfhMg17W1b2VMswcNc2bNKCy_s93eV6ylInehlcPpD0fDjXBjplXykx0mdTeaOwnkACsOAk2bRR7o5gR2AS0=s90",
+            "method": {}
+          }
+        ]
+      }
+    ]
+  });
+
 }
 
 /**
@@ -36,13 +79,13 @@ export function addPost(req, res) {
   newPost.name = sanitizeHtml(newPost.name);
   newPost.content = sanitizeHtml(newPost.content);
 
-  newPost.slug = slug(newPost.title.toLowerCase(), { lowercase: true });
+  newPost.slug = slug(newPost.title.toLowerCase(), {lowercase: true});
   newPost.cuid = cuid();
   newPost.save((err, saved) => {
     if (err) {
       res.status(500).send(err);
     }
-    res.json({ post: saved });
+    res.json({post: saved});
   });
 }
 
@@ -53,11 +96,11 @@ export function addPost(req, res) {
  * @returns void
  */
 export function getPost(req, res) {
-  Post.findOne({ cuid: req.params.cuid }).exec((err, post) => {
+  Post.findOne({cuid: req.params.cuid}).exec((err, post) => {
     if (err) {
       res.status(500).send(err);
     }
-    res.json({ post });
+    res.json({post});
   });
 }
 
@@ -68,7 +111,7 @@ export function getPost(req, res) {
  * @returns void
  */
 export function deletePost(req, res) {
-  Post.findOne({ cuid: req.params.cuid }).exec((err, post) => {
+  Post.findOne({cuid: req.params.cuid}).exec((err, post) => {
     if (err) {
       res.status(500).send(err);
     }

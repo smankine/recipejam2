@@ -5,6 +5,11 @@ const router = new Router();
 // Get all Posts
 router.route('/posts').get(PostController.getPosts);
 
+router.route('/incredients').get(PostController.getIncredients);
+
+router.route('/search').get(PostController.search);
+
+
 // Get one post by cuid
 router.route('/posts/:cuid').get(PostController.getPost);
 
