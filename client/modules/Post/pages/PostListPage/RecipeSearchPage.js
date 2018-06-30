@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 // Import Components
 import PictureItem from './PictureItem';
 import SelectedItem from './SelectedItem';
-
+import styles from './Header.css';
 // Import Actions
 import {addPostRequest, getIncredients, deletePostRequest} from '../../PostActions';
 
@@ -87,9 +87,8 @@ class RecipeSearchPage extends Component {
     }
     return (
       <div className="page1">
-        <h1>Select the incredients you have</h1>
+        <h1>Select the ingredients you have</h1>
         <div className="selectedItemsDiv">
-          Above deselected
           {selected}
 
         </div>
@@ -97,9 +96,9 @@ class RecipeSearchPage extends Component {
           {items}
         </div>
         {this.state.terms}
-        <div className="searchPanel">
-          {this.state.searchterm}
-          <input placeholder="akkkak" type="text" value={this.state.searchterm}></input>
+        <div   className={styles.searchPanel}>
+          {/*{this.state.searchterm}*/}
+          <input placeholder="Search..." type="text" value={this.state.searchterm}></input>
           <button>Search</button>
         </div>
 

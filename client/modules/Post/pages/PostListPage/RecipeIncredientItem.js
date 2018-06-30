@@ -2,8 +2,7 @@ import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import { FormattedMessage } from 'react-intl';
 
-// Import Style
-import styles from '../../components/PostListItem/PostListItem.css';
+import styles from './Header.css';
 
 function RecipeIncredientItem(props) {
 

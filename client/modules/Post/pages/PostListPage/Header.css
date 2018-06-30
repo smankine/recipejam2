@@ -170,6 +170,7 @@ body {
 
 
 .incredientTableCell {
+  display: inline-block;
 
 
 
@@ -240,7 +241,7 @@ body {
     max-width: 50%;
 
 
-
+    display: inline-block;
   }
 
 
@@ -274,6 +275,8 @@ body {
 
 
     max-width: 100%;
+    display:  inline-block;
+    margin: 10px;
 
 
 
@@ -281,4 +284,50 @@ body {
 
 
 
+}
+
+.picContainer{
+  position: relative;
+  text-align: center;
+  color: white;
+  margin: 10px;
+}
+.picContainerBottomLeft{
+  color: black;
+  position: absolute;
+  bottom: -19px;
+  left: 20px;
+  font-size: 12px;
+}
+
+.searchPanel{
+  margin-top: 50px;
+}
+
+.recipeImage{
+  width: 400px;
+  border-radius: 4px;
+  padding: 5px;
+  height: 300px;
+  border: 1px solid #ddd;
+}
+
+.recipeTitle{
+  font-size: 25px;
+  font-family: "montserrat";
+}
+
+.recipeSubTitle{
+  font-size: 15px;
+  font-family: "montserrat";
+}
+
+.recipeProgress{
+  width: 410px;
+  height: 20px;
+}
+
+.recipesmain{
+  width: 50%;
+  margin: 0 auto;
 }

@@ -9,6 +9,8 @@ export function search(req, res) {
     if (!error && response.statusCode == 200) {
       console.log(body) // Print the google web page.
       // res.json(body);
+
+      // body.
       res.send(body);
     }
   })

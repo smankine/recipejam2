@@ -31,10 +31,10 @@ class RecipeViewPage extends Component {
 
     var incredientList = "";
 
-    console.log("here " + this.props.recipes)
-    if (this.props && this.props.data&& this.props.data.incredients && this.props.data.incredients.length) {
+    console.log("there ", this.props.data)
+    if (this.props && this.props.data&& this.props.data.ingredients && this.props.data.ingredients.length) {
       incredientList =
-        this.props.data.incredients.map(post => (
+        this.props.data.ingredients.map(post => (
           <RecipeIncredientItem selectItem={this.selectItem}
                        post={post}
           />
@@ -45,7 +45,7 @@ class RecipeViewPage extends Component {
       <div className="viewPage">
         <h1>{this.props.data.name}</h1>
 
-        <img src={this.props.data.images[0].hostedSmallUrl} class="viewRecipeImage"/>
+        <img src={this.props.data.images[0].hostedSmallUrl} className="viewRecipeImage"/>
 
 
         <div>Incredients</div>

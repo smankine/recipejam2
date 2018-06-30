@@ -7,6 +7,7 @@ import RecipeItem from './RecipeItem';
 // Import Actions
 import { getRecipes} from '../../PostActions';
 
+import styles from './Header.css';
 
 class RecipeListPage extends Component {
 
@@ -40,8 +41,8 @@ class RecipeListPage extends Component {
     }
 
     return (
-      <div className="page1">
-        <h1>Title</h1>
+      <div className={styles.recipesmain}>
+        <h1>Recipes</h1>
 
         <div className="incredientsDiv">
           {items}

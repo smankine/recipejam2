@@ -1,9 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import { FormattedMessage } from 'react-intl';
-
-// Import Style
-import styles from '../../components/PostListItem/PostListItem.css';
+import styles from './Header.css';
 
 function RecipeItem(props) {
 
@@ -16,11 +14,11 @@ function RecipeItem(props) {
 
   if(props.post){
     return (
-      <div className="recipeItem">
-        <div className="recipeTitle">{props.post.recipeName}</div>
-        <div className="recipeTitleDisplay">{props.post.sourceDisplayName}</div>
-        <img  className="selectedItemPicture" src={props.post.imageUrlsBySize['90']}  />
-
+      <div  className={styles.recipeItem}>
+        <div className={styles.recipeTitle}>{props.post.recipeName}</div>
+        <div className={styles.recipeSubTitle}>{props.post.sourceDisplayName}</div>
+        <img className={styles.recipeImage} src={props.post.imageUrlsBySize['90']}  />
+        <img className={styles.recipeProgress} src="https://lh5.googleusercontent.com/diYya4SVCDy-5PLf5cmUasZ99I9HQXc_wmGYvuGHhrSQGFtdtnbyDGa0HrIUyPz7mcOpkKqenJUd6pcH0XiL=w2560-h1270-rw" />
       </div>
     );
   }else{
