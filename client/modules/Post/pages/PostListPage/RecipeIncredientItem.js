@@ -17,7 +17,7 @@ function RecipeIncredientItem(props) {
   if(props.post){
     return (
       <div className="incredientTableCell">
-        <label>{props.post.name}</label>
+        <label>{props.post}</label>
       </div>
     );
   }else{

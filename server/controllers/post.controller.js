@@ -4,7 +4,8 @@ import sanitizeHtml from 'sanitize-html';
 var request = require('request');
 
 export function search(req, res) {
-  request('http://api.yummly.com/v1/api/recipes?_app_id=6faeb25c&_app_key=9f831bfa2aae088b24f64757ac73b86a&q=buttermilk%20pancake', function (error, response, body) {
+  let s = 'http://api.yummly.com/v1/api/recipes?_app_id=6faeb25c&_app_key=9f831bfa2aae088b24f64757ac73b86a&q=buttermilk%20pancake';
+  request(s, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       console.log(body) // Print the google web page.
       // res.json(body);
@@ -18,7 +19,71 @@ export function search(req, res) {
 
 export function viewrecipe(req, res) {
   res.json({
-    "status":"OK"
+    "yield": "12-14 pancakes",
+    "totalTime": "20 min",
+    "ingredients": [
+      "all purpose flour",
+      "sugar",
+      "baking powder",
+      "baking soda",
+      "salt",
+      "large egg",
+      "butter",
+      "buttermilk",
+      "vanilla extract"
+    ],
+    "images": [
+      {
+        "hostedSmallUrl": "https://lh3.googleusercontent.com/CEf_pmGT8XvTsQbxP8XVwZlrE6XPUtF6Z2rTw54mZMuAOqAk0SWL-DdWzaGQdMLcr6Be8k8HRN6PiPE_KnHGnA=s90",
+        "hostedMediumUrl": "https://lh3.googleusercontent.com/CEf_pmGT8XvTsQbxP8XVwZlrE6XPUtF6Z2rTw54mZMuAOqAk0SWL-DdWzaGQdMLcr6Be8k8HRN6PiPE_KnHGnA=s180",
+        "hostedLargeUrl": "https://lh3.googleusercontent.com/CEf_pmGT8XvTsQbxP8XVwZlrE6XPUtF6Z2rTw54mZMuAOqAk0SWL-DdWzaGQdMLcr6Be8k8HRN6PiPE_KnHGnA=s360",
+        "imageUrlsBySize": {
+          "90": "https://lh3.googleusercontent.com/Cyj5qnsGrnQQ57-W7nyeQGkjBkr-mZnP3tUMIgCB_BC-PSpdxL3wqmZvncAb49ol3Oud3EYsDE2XFl8M3qfOWA=s90-c",
+          "360": "https://lh3.googleusercontent.com/Cyj5qnsGrnQQ57-W7nyeQGkjBkr-mZnP3tUMIgCB_BC-PSpdxL3wqmZvncAb49ol3Oud3EYsDE2XFl8M3qfOWA=s360-c"
+        }
+      }
+    ],
+
+    "name": "Eggless Buttermilk Pancakes",
+    "source": {
+      "sourceDisplayName": "A Butterful Mind",
+      "sourceSiteUrl": "abutterfulmind.com",
+      "sourceRecipeUrl": "http://www.abutterfulmind.com/eggless-buttermilk-pancakes/"
+    },
+    "id": "Eggless-Buttermilk-Pancakes-1382130",
+    "ingredientLines": [
+      "2 cups all-purpose flour",
+      "⅓ cup granulated sugar",
+      "2 tablespoons ground flaxseed",
+      "1 teaspoon baking powder",
+      "½ teaspoon baking soda",
+      "¼ teaspoon salt",
+      "½ cup (1 stick) melted butter",
+      "2 cups buttermilk",
+      "2 teaspoons vanilla extract"
+    ],
+    "attribution": {
+      "html": "<a href='http://www.yummly.co/recipe/Eggless-Buttermilk-Pancakes-1382130'>Eggless Buttermilk Pancakes recipe</a> information powered by <img alt='Yummly' src='https://static.yummly.co/api-logo.png'/>",
+      "url": "http://www.yummly.co/recipe/Eggless-Buttermilk-Pancakes-1382130",
+      "text": "Eggless Buttermilk Pancakes recipes: information powered by Yummly",
+      "logo": "https://static.yummly.co/api-logo.png"
+    },
+    "numberOfServings": 6,
+    "totalTimeInSeconds": 1200,
+    "attributes": {
+      "course": [
+        "Breakfast and Brunch"
+      ]
+    },
+    "flavors": {
+      "Piquant": 0,
+      "Meaty": 0.1667,
+      "Bitter": 0.5,
+      "Sweet": 0.5,
+      "Sour": 0.1667,
+      "Salty": 0.6667
+    },
+    "rating": 4
   });
 
 

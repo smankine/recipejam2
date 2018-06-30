@@ -29,12 +29,11 @@ class RecipeViewPage extends Component {
 
   render() {
 
-    var items = "";
-    var selected = [];
+    var incredientList = "";
 
     console.log("here " + this.props.recipes)
     if (this.props && this.props.data&& this.props.data.incredients && this.props.data.incredients.length) {
-      items =
+      incredientList =
         this.props.data.incredients.map(post => (
           <RecipeIncredientItem selectItem={this.selectItem}
                        post={post}
@@ -43,14 +42,12 @@ class RecipeViewPage extends Component {
     }
 
     return (
-      <div className="page1">
-        <h1>Title</h1>
+      <div className="viewPage">
+        <h1>{this.props.data.name}</h1>
 
-        <img src={this.props.data.image}/>
+        <img src={this.props.data.images[0].hostedSmallUrl} class="viewRecipeImage"/>
 
-        <div className="incredientsDiv">
-          {items}
-        </div>
+
         <div>Incredients</div>
         {incredientList}
 
