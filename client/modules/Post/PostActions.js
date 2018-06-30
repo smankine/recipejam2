@@ -8,6 +8,7 @@ export const ADD_RECIPES = 'ADD_RECIPES';
 export const SELECT_RECIPE = 'SELECT_RECIPE';
 export const SEARCH_RECIPES = 'SEARCH_RECIPES';
 export const ADD_INCREDIENTS = 'ADD_INCREDIENTS';
+export const ADD_VIEW = 'ADD_VIEW';
 export const ADD_SEARCH = 'ADD_SEARCH';
 
 // Export Actions
@@ -84,6 +85,19 @@ export function fetchPost(cuid) {
 export function getIncredients() {
   return (dispatch) => {
     return callApi(`incredients`).then(res => dispatch(addIncredients(res)));
+  };
+}
+
+export function getView() {
+  return (dispatch) => {
+    return callApi(`view`).then(res => dispatch(addView(res)));
+  };
+}
+
+export function addView(posts) {
+  return {
+    type: ADD_VIEW,
+    data:posts,
   };
 }
 

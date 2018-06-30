@@ -1,4 +1,4 @@
-import { ADD_POST, ADD_POSTS, DELETE_POST,ADD_RECIPES,SEARCH_RECIPES,SELECT_RECIPE,ADD_INCREDIENTS } from './PostActions';
+import { ADD_POST, ADD_POSTS, DELETE_POST,ADD_RECIPES,SEARCH_RECIPES,SELECT_RECIPE,ADD_INCREDIENTS ,ADD_VIEW} from './PostActions';
 
 // Initial State
 const initialState = { data: [] };
@@ -19,6 +19,10 @@ const PostReducer = (state = initialState, action) => {
         incredients: action.data,
       };
 
+    case ADD_VIEW :
+      return {
+        view: action.data,
+      };
     case ADD_RECIPES :
       return {
         recipes: action.data,

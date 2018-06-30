@@ -5,22 +5,19 @@ import { FormattedMessage } from 'react-intl';
 // Import Style
 import styles from '../../components/PostListItem/PostListItem.css';
 
-function RecipeItem(props) {
+function RecipeIncredientItem(props) {
 
   function selectItem(e, item){
     console.log("click")
     //  selected.push (item)
-    props.selectItem(props.post)
+    // props.selectItem(props.post)
   }
 
 
   if(props.post){
     return (
-      <div className="recipeItem">
-        <div className="recipeTitle">{props.post.recipeName}</div>
-        <div className="recipeTitleDisplay">{props.post.sourceDisplayName}</div>
-        <img  className="selectedItemPicture" src={props.post.imageUrlsBySize['90']}  />
-
+      <div className="incredientTableCell">
+        <label>{props.post.name}</label>
       </div>
     );
   }else{
@@ -35,4 +32,4 @@ function RecipeItem(props) {
 
 
 
-export default RecipeItem;
+export default RecipeIncredientItem;

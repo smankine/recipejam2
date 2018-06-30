@@ -7,7 +7,8 @@ export function search(req, res) {
   request('http://api.yummly.com/v1/api/recipes?_app_id=6faeb25c&_app_key=9f831bfa2aae088b24f64757ac73b86a&q=buttermilk%20pancake', function (error, response, body) {
     if (!error && response.statusCode == 200) {
       console.log(body) // Print the google web page.
-      res.json(body);
+      // res.json(body);
+      res.send(body);
     }
   })
 
@@ -19,6 +20,7 @@ export function viewrecipe(req, res) {
   res.json({
     "status":"OK"
   });
+
 
 }
 

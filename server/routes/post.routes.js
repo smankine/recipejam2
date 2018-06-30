@@ -5,9 +5,9 @@ const router = new Router();
 // Get all Posts
 
 router.route('/incredients').get(PostController.getIncredients);
-router.route('/recipes').get(PostController.viewrecipe);
+router.route('/recipes').get(PostController.search);
 
-router.route('/search').get(PostController.search);
+router.route('/view').get(PostController.viewrecipe);
 
 
 // Get one post by cuid

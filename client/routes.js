@@ -19,6 +19,7 @@ if (process.env.NODE_ENV !== 'production') {
   require('./modules/Post/pages/PostDetailPage/RecipePage');
   require('./modules/Post/pages/PostListPage/RecipeSearchPage');
   require('./modules/Post/pages/PostListPage/RecipeListPage');
+  require('./modules/Post/pages/PostListPage/RecipeViewPage');
 }
 
 // react-router setup with code-splitting
@@ -34,7 +35,7 @@ export default (
     />
 
     <Route
-      path="/recipes"
+      path="/search"
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
           cb(null, require('./modules/Post/pages/PostListPage/RecipeSearchPage').default);
@@ -42,13 +43,21 @@ export default (
       }}
     />
     <Route
-      path="/lists"
+      path="/recipes"
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
           cb(null, require('./modules/Post/pages/PostListPage/RecipeListPage').default);
         });
       }}
     />
-  
+    <Route
+      path="/view"
+      getComponent={(nextState, cb) => {
+        require.ensure([], require => {
+          cb(null, require('./modules/Post/pages/PostListPage/RecipeViewPage').default);
+        });
+      }}
+    />
+
   </Route>
 );

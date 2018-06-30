@@ -2,13 +2,14 @@ import React, {PropTypes, Component} from 'react';
 import {connect} from 'react-redux';
 
 // Import Components
-import RecipeItem from './RecipeItem';
+import RecipeIncredientItem from './RecipeIncredientItem';
+import SelectedItem from './SelectedItem';
 
 // Import Actions
-import { getRecipes} from '../../PostActions';
+import {getView} from '../../PostActions';
 
 
-class RecipeListPage extends Component {
+class RecipeViewPage extends Component {
 
   constructor(props) {
     super(props);
@@ -16,24 +17,26 @@ class RecipeListPage extends Component {
   }
 
   componentDidMount() {
-    this.props.dispatch(getRecipes());
+    this.props.dispatch(getView());
 
   }
 
   selectItem = (item) => {
     console.log("clicksss", item)
+
   };
 
 
-
   render() {
+
     var items = "";
     var selected = [];
-    console.log("here " ,this.props.recipes)
-    if (this.props && this.props.recipes && this.props.recipes.length &&  this.props.recipes.map) {
+
+    console.log("here " + this.props.recipes)
+    if (this.props && this.props.data&& this.props.data.incredients && this.props.data.incredients.length) {
       items =
-        this.props.recipes.map(post => (
-          <RecipeItem selectItem={this.selectItem}
+        this.props.data.incredients.map(post => (
+          <RecipeIncredientItem selectItem={this.selectItem}
                        post={post}
           />
         ))
@@ -43,11 +46,16 @@ class RecipeListPage extends Component {
       <div className="page1">
         <h1>Title</h1>
 
+        <img src={this.props.data.image}/>
+
         <div className="incredientsDiv">
           {items}
         </div>
-        <div className="searchPanel">
-          <button>Search</button>
+        <div>Incredients</div>
+        {incredientList}
+
+        <div className="directionsPanel">
+          <button>Go to recipe Direction</button>
         </div>
 
       </div>
@@ -61,13 +69,13 @@ class RecipeListPage extends Component {
 // Retrieve data from store as props
 function mapStateToProps(state) {
   return {
-    recipes: state.posts.recipes.matches,
+    data: state.posts.view,
 
   };
 }
-RecipeListPage.need = [() => {
-  return getRecipes();
+RecipeViewPage.need = [() => {
+  return getView();
 }];
 
 
-export default connect(mapStateToProps)(RecipeListPage);
+export default connect(mapStateToProps)(RecipeViewPage);
