@@ -18,10 +18,10 @@ function SelectedItem(props) {
 
   if(props.post){
     return (
-      <div className="selectedIncredientTableCelle">
+      <div  className={styles.selectedIncredientTableCelle} >
 
-        <img  className="selectedItemPicture" src={props.post.picture}  />
-        <div className="removeButton" onClick={(e) => selectItem(e)} >Remove</div>
+        <img  className={styles.ingredientPicture22} src={props.post.picture}  />
+        <div className="removeButton" onClick={(e) => selectItem(e)} >X</div>
       </div>
     );
   }else{

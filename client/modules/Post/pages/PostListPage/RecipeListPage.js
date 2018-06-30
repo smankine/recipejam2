@@ -1,6 +1,8 @@
 import React, {PropTypes, Component} from 'react';
 import {connect} from 'react-redux';
 
+
+
 // Import Components
 import RecipeItem from './RecipeItem';
 
@@ -32,8 +34,31 @@ class RecipeListPage extends Component {
     var selected = [];
     console.log("here " ,this.props.recipes)
     if (this.props && this.props.recipes && this.props.recipes.length &&  this.props.recipes.map) {
+
+      var arr = ["https://www.dropbox.com/s/3rjo1rp5h32uip0/matchBar4.png",
+        "https://www.dropbox.com/s/j26dmhc4acugmh3/matchBar2.png",
+        "https://girlgeeksydney.slack.com/files/UB3DBA4P3/FBGHPCWQ4/matchbar1.png",
+        "https://files.slack.com/files-tmb/T28DJ22R2-FBG3TN1BJ-7838c87860/matchbar3_1024.png"];
+
+      var arr = ["matchBar4_preview.png",
+        "/matchBar4_preview.png",
+        "/matchBar4_preview.png",
+        "matchBar4_preview.png"];
+
+      // console.log("body.matches" + body.matches)
+      var i = 0;
+      this.props.recipes.forEach(function (o) {
+        o.barUrl = arr[i];
+
+        if (i > 2) {
+          i = 0;
+        }
+      })
+
+
       items =
         this.props.recipes.map(post => (
+
           <RecipeItem selectItem={this.selectItem}
                        post={post}
           />

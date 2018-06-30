@@ -81,6 +81,20 @@
 
 }
 
+.ingredientPicture22 {
+
+  width: 40px;
+
+  border-radius: 4px;
+
+  padding: 5px;
+
+  height: 40px;
+
+  border: 1px solid #ddd;
+
+}
+
 
 
 .ingredientLabel {
@@ -330,4 +344,27 @@ body {
 .recipesmain{
   width: 50%;
   margin: 0 auto;
+}
+
+.mybutton {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-left: 30px;
+}
+
+.textfixle {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+.selectedIncredientTableCelle{
+  display:  inline-block;
 }

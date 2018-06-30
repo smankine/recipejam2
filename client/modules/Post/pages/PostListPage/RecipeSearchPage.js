@@ -98,8 +98,8 @@ class RecipeSearchPage extends Component {
         {this.state.terms}
         <div   className={styles.searchPanel}>
           {/*{this.state.searchterm}*/}
-          <input placeholder="Search..." type="text" value={this.state.searchterm}></input>
-          <button>Search</button>
+          <input placeholder="Search..." type="text" value={this.state.searchterm} className={styles.textfixle} ></input>
+          <button   className={styles.mybutton} >Search</button>
         </div>
 
       </div>
