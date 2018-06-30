@@ -13,7 +13,7 @@ class RecipeSearchPage extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {selected: []};
+    this.state = {selected: [], searchterm: ''};
   }
 
   componentDidMount() {
@@ -30,21 +30,34 @@ class RecipeSearchPage extends Component {
   selectItem = (item) => {
     console.log("clicksss", item)
 
-    // var newlist = this.state.selected.push(item);
-    //
-    // this.state = {
-    //   selected:newlist
-    // }
-    this.setState({selected: this.state.selected.concat([item])})
+
+    var index = this.state.selected.indexOf(item)
+
+    if (index < 0) {
+      var ii = this.state.selected.concat([item]);
+
+      this.setState({selected: ii})
+      var s = ii.map(post => (
+        post.name + " "
+      ))
+      this.setState({searchterm: s})
+      console.log(s);
+    }
   };
 
   deselecteItem = (item) => {
     console.log("deselecte", item)
 
     var array = [...this.state.selected]; // make a separate copy of the array
-    var index = array.indexOf(selected)
+    var index = array.indexOf(item)
     array.splice(index, 1);
     this.setState({selected: array});
+
+    var s = array.map(post => (
+      post.name + " "
+    ))
+    this.setState({searchterm: s})
+    console.log(s);
   };
 
   render() {
@@ -52,40 +65,41 @@ class RecipeSearchPage extends Component {
     var items = "";
     var selected = [];
 
-    console.log("here "+ this.props.incredients)
+    console.log("here " + this.props.incredients)
     if (this.props && this.props.incredients && this.props.incredients.length) {
       items =
         this.props.incredients.map(post => (
           <PictureItem selectItem={this.selectItem}
-            post={post}
+                       post={post}
           />
 
         ))
     }
 
-    if (this.state &&this.state.selected && this.state.selected.length) {
+    if (this.state && this.state.selected && this.state.selected.length) {
       selected =
         this.state.selected.map(post => (
           <SelectedItem deselecteItem={this.deselecteItem}
-                       post={post}
+                        post={post}
           />
         ))
 
     }
     return (
-      <div class="page1">
+      <div className="page1">
         <h1>Select the incredients you have</h1>
-        <div class="selectedItemsDiv">
+        <div className="selectedItemsDiv">
           Above deselected
-        {selected}
+          {selected}
 
         </div>
-        <div class="incredientsDiv">
+        <div className="incredientsDiv">
           {items}
         </div>
-
-        <div class="searchPanel">
-          <input placeholder="akkkak" type="text"></input>
+        {this.state.terms}
+        <div className="searchPanel">
+          {this.state.searchterm}
+          <input placeholder="akkkak" type="text" value={this.state.searchterm}></input>
           <button>Search</button>
         </div>
 

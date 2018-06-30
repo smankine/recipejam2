@@ -5,21 +5,21 @@ import { FormattedMessage } from 'react-intl';
 // Import Style
 import styles from '../../components/PostListItem/PostListItem.css';
 
-function PictureItem(props) {
+function SelectedItem(props) {
 
   function selectItem(e, item){
     console.log("click")
     //  selected.push (item)
-    props.selectItem(props.post)
+    props.deselecteItem(props.post)
   }
 
 
   if(props.post){
     return (
-      <div className="incredientTableCell">
-        <label>{props.post.name}</label>
-        <img src={props.post.picture} onClick={(e) => selectItem(e)} className="incredientPicture"/>
+      <div className="selectedIncredientTableCelle">
 
+        <img  className="selectedItemPicture" src={props.post.picture}  />
+        <div className="removeButton" onClick={(e) => selectItem(e)} >Remove</div>
       </div>
     );
   }else{
@@ -34,4 +34,4 @@ function PictureItem(props) {
 
 
 
-export default PictureItem;
+export default SelectedItem;

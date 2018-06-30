@@ -23,6 +23,10 @@ const PostReducer = (state = initialState, action) => {
       return {
         recipes: action.data,
       };
+    case ADD_RECIPES :
+      return {
+        recipes: action.data,
+      };
     case SELECT_RECIPE :
       return {
         recipes: action.data,

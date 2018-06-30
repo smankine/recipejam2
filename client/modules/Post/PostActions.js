@@ -87,6 +87,19 @@ export function getIncredients() {
   };
 }
 
+export function getRecipes() {
+  return (dispatch) => {
+    return callApi(`recipes`).then(res => dispatch(addgetRecipes(res)));
+  };
+}
+
+export function addgetRecipes(posts) {
+  return {
+    type: ADD_RECIPES,
+    data:posts,
+  };
+}
+
 export function search() {
   return (dispatch) => {
     return callApi(`search`).then(res => dispatch(addIncredients(res)));

@@ -4,3 +4,7 @@
   padding: 15px;
   margin: 0 auto;
 }
+.incredientTableCell img{
+  width: 100px;
+  height: 100px;
+}

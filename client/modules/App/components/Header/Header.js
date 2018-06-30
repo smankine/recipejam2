@@ -13,7 +13,8 @@ export function Header(props, context) {
         <ul>
 
 
-            <li> <Link to="/recipes" >Recipes</Link></li>
+            <li> <Link to="/recipes" >Search</Link></li>
+            <li> <Link to="/lists" >recipes</Link></li>
           </ul>
       </div>
       {/*<div className={styles.content}>*/}

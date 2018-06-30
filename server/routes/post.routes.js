@@ -5,6 +5,7 @@ const router = new Router();
 // Get all Posts
 
 router.route('/incredients').get(PostController.getIncredients);
+router.route('/recipes').get(PostController.viewrecipe);
 
 router.route('/search').get(PostController.search);
 
