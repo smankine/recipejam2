@@ -11,12 +11,23 @@ import {addPostRequest, getIncredients, deletePostRequest} from '../../PostActio
 class RecipeSearchPage extends Component {
   componentDidMount() {
     this.props.dispatch(getIncredients());
+    this.state = {
+      selected:[]
+    }
   }
 
 
   handleSearch = (name, title, content) => {
     // this.props.dispatch(toggleAddPost());
     // this.props.dispatch(addPostRequest({ name, title, content }));
+  };
+
+  selectItem = (name, title, content) => {
+    console.log("click", item)
+
+    this.state = {
+      selected:[]
+    }
   };
 
   render() {
